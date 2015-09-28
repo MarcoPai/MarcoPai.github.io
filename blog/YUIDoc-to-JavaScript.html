@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>[搬砖]用YUIDoc制作JavaScript文档手册 | I&#39;m Marco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="转自:[译]用YUIDoc文档化JavaScript代码
+文档化你的JS代码有点类似于测试； 我们都意识到要这么做，但我们都不确定怎么做，大多数人都没有做，但其实我们非常支持这么做。YUIDoc正是应付这个问题的最佳方案，那么，本教程将使你快速掌握它。
+###YUIDoc是什么?
+
+YUIDoc会根据你写的代码注释生成API文档。
+
+YUIDoc 是个NodeJS 应用能将你JS代码中的注释生成H">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[搬砖]用YUIDoc制作JavaScript文档手册">
+<meta property="og:url" content="http://www.marcopai.com/blog/YUIDoc-to-JavaScript.html">
+<meta property="og:site_name" content="I'm Marco">
+<meta property="og:description" content="转自:[译]用YUIDoc文档化JavaScript代码
+文档化你的JS代码有点类似于测试； 我们都意识到要这么做，但我们都不确定怎么做，大多数人都没有做，但其实我们非常支持这么做。YUIDoc正是应付这个问题的最佳方案，那么，本教程将使你快速掌握它。
+###YUIDoc是什么?
+
+YUIDoc会根据你写的代码注释生成API文档。
+
+YUIDoc 是个NodeJS 应用能将你JS代码中的注释生成H">
+<meta property="og:image" content="http://d2o0t5hpnwv4c1.cloudfront.net/2055_yuiDoc/docs.png">
+<meta property="og:updated_time" content="2014-07-15T03:36:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[搬砖]用YUIDoc制作JavaScript文档手册">
+<meta name="twitter:description" content="转自:[译]用YUIDoc文档化JavaScript代码
+文档化你的JS代码有点类似于测试； 我们都意识到要这么做，但我们都不确定怎么做，大多数人都没有做，但其实我们非常支持这么做。YUIDoc正是应付这个问题的最佳方案，那么，本教程将使你快速掌握它。
+###YUIDoc是什么?
+
+YUIDoc会根据你写的代码注释生成API文档。
+
+YUIDoc 是个NodeJS 应用能将你JS代码中的注释生成H">
+  
+  
+  
+ <link href='//fonts.useso.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+ <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+  
+
+  
+
+  
+</head>
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="/" id="logo"><i class="logo" style="background-image: url(/css/images/logo.png)"></i><span class="site-title">I&#39;m Marco</span></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">home</a>
+        
+          <a class="main-nav-link" href="/categories/javascript">javascript</a>
+        
+          <a class="main-nav-link" href="/categories/css3">css3</a>
+        
+          <a class="main-nav-link" href="/categories/project">project</a>
+        
+          <a class="main-nav-link" href="/categories/nodejs">nodejs</a>
+        
+          <a class="main-nav-link" href="/categories/tools">tools</a>
+        
+          <a class="main-nav-link" href="/categories/photo">photo</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/site">Sites</a>
+        
+      </nav>
+      
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="http://www.gravatar.com/avatar/f0903fd6a890dad6ae1cd44d577adcfd"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+      
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="http://www.marcopai.com"></form>
+      </div>
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tr>
+        
+          <td><a class="main-nav-link" href="/">home</a></td>
+        
+          <td><a class="main-nav-link" href="/categories/javascript">javascript</a></td>
+        
+          <td><a class="main-nav-link" href="/categories/css3">css3</a></td>
+        
+          <td><a class="main-nav-link" href="/categories/project">project</a></td>
+        
+          <td><a class="main-nav-link" href="/categories/nodejs">nodejs</a></td>
+        
+          <td><a class="main-nav-link" href="/categories/tools">tools</a></td>
+        
+          <td><a class="main-nav-link" href="/categories/photo">photo</a></td>
+        
+          <td><a class="main-nav-link" href="/archives">Archives</a></td>
+        
+          <td><a class="main-nav-link" href="/categories">Categories</a></td>
+        
+          <td><a class="main-nav-link" href="/tags">Tags</a></td>
+        
+          <td><a class="main-nav-link" href="/about">About</a></td>
+        
+          <td><a class="main-nav-link" href="/site">Sites</a></td>
+        
+        <td>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="hidden" name="sitesearch" value="http://www.marcopai.com"></form>
+        </td>
+      </tr>
+    </table>
+  </div>
+</header>
+
+    <div class="outer">
+      
+        <aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      <img id="avatar" src="http://www.gravatar.com/avatar/f0903fd6a890dad6ae1cd44d577adcfd">
+      <h2 id="name">Marco Pai</h2>
+      <h3 id="title">Web Developer &amp; Designer</h3>
+      <span id="location"><i class="fa fa-map-marker"></i>Beijing, China</span>
+      <a id="follow" target="_blank" href="http://weibo.com/wjay">关注我</a>
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        10
+        <span>文章</span>
+      </div>
+      <div class="article-info-block">
+        10
+        <span>标签</span>
+      </div>
+    </div>
+    
+    <div class="contact-info profile-block">
+      <table class="contact-list">
+        <tr>
+          
+          <td><a href="http://github.com/MarcoPai" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
+          
+          <td><a href="http://weibo.com/wjay" target="_blank" title="weibo"><i class="fa fa-weibo"></i></a></td>
+          
+          <td><a href="http://jsfiddle.net/MarcoPai/qLev3oen/" target="_blank" title="jsfiddle"><i class="fa fa-jsfiddle"></i></a></td>
+          
+        </tr>
+      </table>
+    </div>
+    
+    
+  </div>
+</aside>
+
+      
+      <section id="main"><article id="post-YUIDoc-to-JavaScript" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      [搬砖]用YUIDoc制作JavaScript文档手册
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/blog/YUIDoc-to-JavaScript.html">
+      <time datetime="2014-07-15T03:36:55.000Z" itemprop="datePublished">2014-07-15</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/note/">note</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <p>转自:<a href="http://www.iunbug.com/archives/2012/06/07/296.html" target="_blank" rel="external">[译]用YUIDoc文档化JavaScript代码</a></p>
+<p>文档化你的JS代码有点类似于测试； 我们都意识到要这么做，但我们都不确定怎么做，大多数人都没有做，但其实我们非常支持这么做。<a href="http://yui.github.com/yuidoc/" target="_blank" rel="external">YUIDoc</a>正是应付这个问题的最佳方案，那么，本教程将使你快速掌握它。</p>
+<p>###YUIDoc是什么?</p>
+<blockquote>
+<p>YUIDoc会根据你写的代码注释生成API文档。</p>
+</blockquote>
+<p><a href="http://yui.github.com/yuidoc/" target="_blank" rel="external">YUIDoc</a> 是个NodeJS 应用能将你JS代码中的注释生成HTML格式的API文档。实事上，不仅是JS，任何支持块注释（指/<em> </em>/）的语言都能用。 我想你也猜到了，YUIDoc是Yahoo出品的，跟鼎鼎大名的YUI一起的。</p>
+<p>要安装YUIDoc，你要用npm先安装好NodeJS然后使用命令，即可安装YUIDoc：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm -g install yuidocjs</span><br></pre></td></tr></table></figure>
+<p>通过命令来使用：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yuidoc &lt;path to js folder&gt;</span><br></pre></td></tr></table></figure>
+<p>详细内容下面接着讲。</p>
+<a id="more"></a>
+<p>###一切都是关于标签</p>
+<p>嗯，你已经知道了YUIDoc从源文件的多行注释中抽取到文档内容。当然，你会有些注释不想成为文档的一部分，当YUIDoc知道你的注释是非常重要的，必须要以两个*开头：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">YUIDoc 会认这个</span><br><span class="line">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span><br><span class="line">但不认这个</span><br><span class="line">*/</span></span><br></pre></td></tr></table></figure>
+<p>当然，注释里的内容才是最重要的。每个注释块都应该包含唯一的主标签，和0个或多个副标签。YUIDoc就是这么易用：用正确的标签加注释即可随即生成文档。下面：我们将把所有的标签走一遍，哪里会用到，简单的示例说明；然后生成一些文档，这样你就会对标签的用法有个良好的认识。</p>
+<p>###主标签<br>开始讲主标签之前，必须明确一点，每个注释块中能有且仅有一个主标签。描述了当前代码块的作用。</p>
+<p>####@module<br>@module 标签描述一组关联的类（对，对，JS 没有类，YUIDoc只是把有构造方法也归为类罢了）。如果我们用YUIDoc生成 BackboneJS的文档，那 Backbone 对象就是个module，因为它同时管理Model, Collection, View, 和 other classes。标签后面跟着写module名称。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">@module Backbone</span><br><span class="line"> */</span></span><br><span class="line"> <span class="keyword">var</span> Backbone = Backbone || &#123;&#125;;</span><br></pre></td></tr></table></figure>
+<p>####@class<br>@class 标签专门描述类的。在YUI库中通常是个构造函数。每个有@class 标签的注释块都应该有一个@static 或者 @constructor的副标签。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">@class Model</span><br><span class="line"> */</span></span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">Model</span> (<span class="params"></span>) </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>如果你的类是module的一部分，那么不必在 @class 注释里指明与module的关系，只要文件的顶部有 @module的注释即可。</p>
+<p>####@method<br>@method 描述类中的方法。你将会用到 @return 和 @params 副标签加以说明。</p>
+<p>####@property<br>@property 标签说明类的属性值。 @type 和 @default副标签配合使用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">@property templateString</span><br><span class="line">*/</span></span><br><span class="line"><span class="keyword">this</span>.templateString = <span class="string">"div"</span>;</span><br></pre></td></tr></table></figure>
+<p>####@event<br>@event 描述你自定义的可触发事件。YUIDoc文档里指出:</p>
+<blockquote>
+<p>@event 注释快近似于 @method，但无需@return ， @param 则用于说明回调方法接收的参数</p>
+</blockquote>
+<p>###副标签<br>注释块可以有多个副标签，通常同时有几个并且有些类型相同，下面介绍些常用的：</p>
+<p>####@submodule<br>如果你的module分为多个(可能在同一个文件中，可能不在)， @submodule 就为此而生：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">@module Util</span><br><span class="line">@submodule array</span><br><span class="line">*/</span></span><br><span class="line">Util.array = &#123;&#125;;</span><br></pre></td></tr></table></figure>
+<p>####@extends<br>@extends 描述类继承关系时非常有用，声明了当前类的超类是哪个：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">@class AppView</span><br><span class="line">@extends Backbone.View</span><br><span class="line">*/</span></span><br><span class="line"><span class="keyword">var</span> AppView = Backbone.View.extend(&#123;&#125;);</span><br></pre></td></tr></table></figure>
+<p>####@constructor<br>如果一个类可被实例化，说明它得有个构造方法。如果你用的是原型链的方式，那类的构造也应该是构造方法。那么下面的注释就非常常见了：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">@class Recipe</span><br><span class="line">@constructor</span><br><span class="line">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Recipe</span> (<span class="params"></span>) </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>这事实上是上面提到的 @class 标签中应该有一个@constructor 或@static 的副标签。</p>
+<p>####@static<br>@static是描述那些不能实例化的静态类的。 一个最好的说明就是 Math 对象，你不必实例化才能调用其带的方法。是通过这个类本身来调用的：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">@class MathHelpers</span><br><span class="line">@static</span><br><span class="line">*/</span></span><br><span class="line"><span class="keyword">var</span> MathHelpers = &#123;&#125;;</span><br></pre></td></tr></table></figure>
+<p>方法也可以静态化：可以实例化的类中，可能有些类级别的方法，这些方法被设计成静态的（只能被类调用）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">@class Person</span><br><span class="line">@constructor</span><br><span class="line">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span><br><span class="line">@method all</span><br><span class="line">@static</span><br><span class="line">*/</span></span><br><span class="line">Person.all = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</span><br></pre></td></tr></table></figure>
+<p>本示例中的Person 实例的all方法即是静态的。</p>
+<p>####@final<br>本标签描述属性和常量：值不可变。由于JS并没有什么常量的概念，你编码的模式规范可能有这样的要求，那这个标签就有用了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">@property DATE_FORMAT</span><br><span class="line">@final</span><br><span class="line">*/</span></span><br><span class="line"><span class="keyword">var</span> DATE_FORMAT = <span class="string">"%B %d, %Y"</span>;</span><br></pre></td></tr></table></figure>
+<p>####@param<br>重要标签： @param 定义了 @method (包括@constructor) 或 @event的参数。@param 后写三个信息：name 参数名， type参数类型 (可选),，description参数描述。这三个的顺序可为name type descriptio或者 type name description；参数类型必须用{}包括起来。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">@method greet</span><br><span class="line">@param person &#123;string&#125; The name of the person to greet</span><br><span class="line">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greet</span> (<span class="params">person</span>) </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>参数有此可选项，放入[]中表示可选参数，后接着 =someVal 表明是默认参数 (显然，只有可靠参数才会有默认值)。用 <em> 表示多个参数(name</em> 表示1个或者多个参数，[name]* 表示0个或者多个参数)。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">@class Template</span><br><span class="line">@constructor</span><br><span class="line">@param template &#123;String&#125; The template string</span><br><span class="line">@param [data=&#123;&#125;] &#123;Object&#125; The object whose properties will be rendered in the template</span><br><span class="line">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Template</span> (<span class="params">template, data</span>) </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>####@return<br>你的方法中通常有返回值，本标签就可以描述之，别忘记写上返回值类型和说明。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">@method toHTML</span><br><span class="line">@param [template=Recipe.defaultTemplate] &#123;Template&#125; A template object</span><br><span class="line">@return &#123;String&#125; The recipe contents formatted in HTML with the default or passed-in template.</span><br><span class="line">*/</span></span><br><span class="line">Recipe.prototype.toHTML = <span class="function"><span class="keyword">function</span> (<span class="params">template</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"whatever"</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>####@type<br>上面提到过主标签 @property 。你可能想过定义这些属性的类型， @type标签就是给你这么用的。之后跟着类型，如果多个用|分隔：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">@property URL</span><br><span class="line">@type String</span><br><span class="line">*/</span></span><br><span class="line">URL: <span class="string">"http://net.tutsplus.com"</span>,</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span><br><span class="line">@property person</span><br><span class="line">@type String|Person|Object</span><br><span class="line">*/</span></span><br><span class="line"><span class="keyword">this</span>.person = <span class="keyword">new</span> Person();</span><br></pre></td></tr></table></figure>
+<p>####@private / @protected<br>传统语言中都有private 属性或者方法：不能在实例之外访问。与常量一样，JS里只是练习用的，你可以通过声明@private 来标明。注意，YUIDoc不会在生成的文档中显示这些属性或者方法（合理），所以，你可以在代码中加入一些对私人有用的信息。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">@method _toString</span><br><span class="line">@private</span><br><span class="line">*/</span></span><br><span class="line"><span class="keyword">var</span> _toString = <span class="built_in">Object</span>.prototype.toString.call;</span><br></pre></td></tr></table></figure>
+<p>Protected 属性或者方法是介于public和 private之间的：它们只能被实例本身或者子类访问。如果你的代码作用是这样就用@protected标签标明。</p>
+<p>####@requires<br>如果一个 module 依赖多个module，那就用 @requires 标明：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">@module MyFramework.localstorage</span><br><span class="line">@requires MyFramework</span><br><span class="line">*/</span></span><br></pre></td></tr></table></figure>
+<p>@requires 可用逗号分隔表明同时依赖多个。</p>
+<p>####@default<br>声明一个@property时用 @default 定义它的默认值，须配合@type用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">@property element</span><br><span class="line">@type String</span><br><span class="line">@default "div"</span><br><span class="line">*/</span></span><br><span class="line">element: <span class="string">"div"</span>,</span><br></pre></td></tr></table></figure>
+<p>####@uses<br>正如我们说过，JS没有类，不过模拟个类甚至子类是可办到的。最酷的是子类还能是个混血儿（mixes）：设置从另一个类中“借”其属性和方法。这说的不是继承，因为你可能嵌套多个类(是的，YUI 等其他类库都有这功能)。如果你做了这些可以用 @uses 标明，其后分别跟上嵌套的类名。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">@class ModalWindow</span><br><span class="line">@uses Window</span><br><span class="line">@uses DragDroppable</span><br><span class="line">*/</span></span><br><span class="line"><span class="keyword">var</span> ModalWindow = <span class="keyword">new</span> Class(&#123;</span><br><span class="line">    mixes: [Window, DragDroppable],</span><br><span class="line">    ...</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>注意：以上的示例是我编的，不过我敢肯定我见过相似的代码。</p>
+<p>####@example<br>想在代码中加入实例说明？那就用 @example 标签，后面缩进一级跟着写上实例。多少个实例无所谓。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">@method greet</span><br><span class="line">@example</span><br><span class="line">    person.greet("Jane");</span><br><span class="line">*/</span></span><br><span class="line">Person.prototype.greet = <span class="function"><span class="keyword">function</span> (<span class="params">name</span>) </span>&#123;&#125;;</span><br></pre></td></tr></table></figure>
+<p>####@chainable<br>你肯定很熟悉jQuery的链式风格。因为方法里面返回了当前对象所以你可以调完一个方法后再调另一个方法。用@chainable标明：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">@method addClass</span><br><span class="line">@chainable</span><br><span class="line">*/</span></span><br><span class="line">jQuery.prototype.addClass = <span class="function"><span class="keyword">function</span> (<span class="params">class</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// stuff;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>####@deprecated / @since / @beta<br>这三个标签说明代码的支持性质的(可以是任意代码: module, class, method, 或者其他)。用 @deprecated 标明代码不再可这么用 (弃用的功能可能在今后的版本更新中被移除)。 你也可以加上点明说为何要这么做。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">@method toJSON</span><br><span class="line">@deprecated Pass the object to `JSON.parse` instead</span><br><span class="line">*/</span></span><br><span class="line">Something.toJSON = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</span><br></pre></td></tr></table></figure>
+<p>@since 标签告诉读者自哪个版起代码被加进来。 @beta 标明代码是beta： YUI 建议 @beta 代码“将来是不向下兼容的”。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">@class Tooltip</span><br><span class="line">@since 1.2.3</span><br><span class="line">@constructor</span><br><span class="line">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Tooltip</span> (<span class="params"></span>) </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>####@extension / @extensionfor /extension_for<br>@extension 标签(和其别名) 跟 @uses相对。用它标明哪个类在其他类中能被嵌套，不是说此类总是被嵌套，只是说明它是可以的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">@class Draggable</span><br><span class="line">@extensionfor ModalWindow</span><br><span class="line">*/</span></span><br></pre></td></tr></table></figure>
+<p>###Comments and Markdown<br>在我们做个完整实例之前，注释块还有两个要点我要先提一提。<br>首先，你会常常想增加些标签标说不明的信息。或许是想说明方法的目的，或者是想说明此类如何融入大局去。那么这些内容应该放在注释块的所有标签开始之前，YUIDoc会把它们包含进文档。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">The `Router` class is used for . . .</span><br><span class="line">@class Router</span><br><span class="line">@static</span><br><span class="line">*/</span></span><br><span class="line"><span class="keyword">var</span> Router = &#123;&#125;;</span><br></pre></td></tr></table></figure>
+<p>第二，你希望注释生成的文档能安意愿显示成有较好的可读性的HTML格式。当然可以，甚至你注释里的代码生成文档后会按语法高亮。</p>
+<p>###实例</p>
+<p>学过了标签之后，让我们来个实战实例。创建一个Store的module，关联两个类：Item 和 Cart。每个Item的实例都以Item类型保存入store 的列表里：将有属性 name， price，quantity。一个Cart 实例能能添加入item并且计算价格总和（含税）。这个简单实例中功能齐全将运用到我们学到的很多标签。先来看store.js.<br>创建module：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">* This module contains classes for running a store.</span><br><span class="line">* @module Store</span><br><span class="line">*/</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> Store = Store || &#123;&#125;;</span><br></pre></td></tr></table></figure>
+<p>创建税率常量：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line">* `TAX_RATE` is stored as a percentage. Value is 13.</span><br><span class="line">    * @property TAX_RATE</span><br><span class="line">    * @static</span><br><span class="line">    * @final</span><br><span class="line">    * @type Number</span><br><span class="line">*/</span></span><br><span class="line"> </span><br><span class="line">Store.TAX_RATE = <span class="number">13</span>;</span><br></pre></td></tr></table></figure>
+<p>这是一个包含了(@final) @property 和Number @type 的属性。注意我包含了 @static：这是由于种种原因，当我们生成文档时,YUIDoc会将此属性显示为类Item的属性：看起来YUIDoc 暂不支持 module有属性的。我猜测我可能通过创建一个静态类来托管这个常量（如果深入开发还会有更多常量的），但我我留下一个警示：用类似于YUIDoc的工具，如果使用其最大的潜在功能，可能会改变你的编码习惯，你不得不认真考虑是否愿意这么做。<br>现在来看Item类：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * @class Item</span><br><span class="line"> * @constructor</span><br><span class="line"> * @param name &#123;String&#125; Item name</span><br><span class="line"> * @param price &#123;Number&#125; Item price</span><br><span class="line"> * @param quantity &#123;Number&#125; Item quantity (the number available to buy)</span><br><span class="line"> */</span></span><br><span class="line"> </span><br><span class="line">Store.Item = <span class="function"><span class="keyword">function</span> (<span class="params">name, price, quantity</span>) </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * @property name</span><br><span class="line">     * @type String</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * @property price</span><br><span class="line">     * @type String</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">this</span>.price = price * <span class="number">100</span>;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * @property quantity</span><br><span class="line">     * @type Number</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">this</span>.quantity = quantity;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * @property id</span><br><span class="line">     * @type Number</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">this</span>.id = Store.Item._id++;</span><br><span class="line">    Store.Item.list[<span class="keyword">this</span>.id] = <span class="keyword">this</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>如上所见，本构造方法有三个参数，还有三个属性都作了注释。由于我们要每个Item的ID唯一，我们需要保存一个静态（类级别）的自增ID属性，还有另一个静态的属性专门能够通过它索引到ID对应的Item。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * `_id` is incremented when a new item is created, so every item has a unique ID</span><br><span class="line"> * @property id</span><br><span class="line"> * @type Number</span><br><span class="line"> * @static</span><br><span class="line"> * @private</span><br><span class="line"> */</span></span><br><span class="line">Store.Item._id = <span class="number">1</span>;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * @property list</span><br><span class="line"> * @static</span><br><span class="line"> * @type Object</span><br><span class="line"> */</span></span><br><span class="line">Store.Item.list = &#123;&#125;;</span><br></pre></td></tr></table></figure>
+<p>那类 Cart呢？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * @class Cart</span><br><span class="line"> * @constructor</span><br><span class="line"> * @param name &#123;String&#125; Customer name</span><br><span class="line"> */</span></span><br><span class="line"> </span><br><span class="line">Store.Cart = <span class="function"><span class="keyword">function</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * @property name</span><br><span class="line">     * @type String</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * @property items</span><br><span class="line">     * @type Object</span><br><span class="line">     * @default &#123;&#125;</span><br><span class="line">     */</span></span><br><span class="line">    <span class="keyword">this</span>.items = &#123;&#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>注意，我们声明默认的items 属性是个空对象。<br>下面是方法， addItem方法中的一个参数是可选的并且有默认值，还有就是此方法是支持链式的  @chainable。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * Adds 1 or more of a given item to the cart, if the chosen quantity</span><br><span class="line"> * is available. If not, none are added.</span><br><span class="line"> *</span><br><span class="line"> * @method addItem</span><br><span class="line"> * @param item &#123;Object&#125; An `Item` Object</span><br><span class="line"> * @param [quantity=1] &#123;Number&#125; The number of items to add to the cart</span><br><span class="line"> * @chainable</span><br><span class="line"> */</span></span><br><span class="line"> </span><br><span class="line">Store.Cart.prototype.addItem = <span class="function"><span class="keyword">function</span> (<span class="params">item, quantity</span>) </span>&#123;</span><br><span class="line">    quantity = quantity || <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (item.quantity &amp;gt;= quantity) &#123;</span><br><span class="line">        <span class="keyword">this</span>.items[item.id] = <span class="keyword">this</span>.items[item.id] || <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">this</span>.items[item.id] += quantity;</span><br><span class="line">        item.quantity -= quantity;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>最后我们要返回价格总和，注意，我们通过数学公式将值转换为小数点为两位数的美元。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span><br><span class="line"> * @method total</span><br><span class="line"> * @return &#123;Number&#125; tax-included total value of cart contents</span><br><span class="line"> */</span></span><br><span class="line"> </span><br><span class="line">Store.Cart.prototype.total = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> subtotal, id;</span><br><span class="line">    subtotal = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (id <span class="keyword">in</span> <span class="keyword">this</span>.items) &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>.items.hasOwnProperty(id)) &#123;</span><br><span class="line">            subtotal += Store.Item.list[id].price * <span class="keyword">this</span>.items[id];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">parseFloat</span>(((subtotal * (<span class="number">1</span> + Store.TAX_RATE / <span class="number">100</span>)) / <span class="number">100</span>).toFixed(<span class="number">2</span>));</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>如果你想进行单元测试，下面是测试代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> apple, pear, book, desk, assertEquals;</span><br><span class="line"> </span><br><span class="line">assertEquals = <span class="function"><span class="keyword">function</span> (<span class="params">one, two, msg</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(((one === two) ? <span class="string">"PASS : "</span> : <span class="string">"FAIL : "</span>) + msg);</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line">apple = <span class="keyword">new</span> Store.Item(<span class="string">'Granny Smith Apple'</span>, <span class="number">1.00</span>, <span class="number">5</span>);</span><br><span class="line">pear  = <span class="keyword">new</span> Store.Item(<span class="string">'Barlett Pear'</span>, <span class="number">2.00</span>, <span class="number">3</span>);</span><br><span class="line">book  = <span class="keyword">new</span> Store.Item(<span class="string">'On Writing Well'</span>, <span class="number">15.99</span>, <span class="number">2</span>);</span><br><span class="line">desk  = <span class="keyword">new</span> Store.Item(<span class="string">'IKEA Gallant'</span>, <span class="number">123.45</span>, <span class="number">1</span>);</span><br><span class="line">cart  = <span class="keyword">new</span> Store.Cart(<span class="string">'Andrew'</span>);</span><br><span class="line"> </span><br><span class="line">cart.addItem(apple, <span class="number">1</span>).addItem(book, <span class="number">3</span>).addItem(desk, <span class="number">1</span>);</span><br><span class="line"> </span><br><span class="line">assertEquals(apple.quantity, <span class="number">4</span>, <span class="string">"adding 1 apple removes 1 from the item quantity"</span>);</span><br><span class="line">assertEquals(book.quantity, <span class="number">2</span>, <span class="string">"trying to add more books than there are means none are added"</span>);</span><br><span class="line">assertEquals(cart.total(), <span class="number">140.63</span>, <span class="string">"total price for 1 apple and 1 desk is 140.63"</span>);</span><br></pre></td></tr></table></figure>
+<p>###生成文档<br>代码和注释都编写好后我们开始生成文档。<br>如果你是通过npm安装成全局的，那你就运行 yuidoc {path to js}。我这里只用运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yuidoc .</span><br></pre></td></tr></table></figure>
+<p>之后，你会在当前目前生成一个out文件夹；打开 out/index.html就看到生成的文档内容：</p>
+<p><img src="http://d2o0t5hpnwv4c1.cloudfront.net/2055_yuiDoc/docs.png" alt="demo"></p>
+<p>###配置输出<br><a href="http://yui.github.com/yuidoc/args/index.html#yuidocjson-fields" target="_blank" rel="external">这些配置选项</a> 可以在运行 YUIDoc 时设置。你可以在命令行里使用，不过我喜欢做成JSON放入一个JSON 文件里使用。 在你的项目目录建立一个 yuidoc.json文件。首先设置项目信息，这些信息不会影响输出结果，不过加上总是好的：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "<span class="attribute">name</span>": <span class="value"><span class="string">"Documenting JavaScript with YUIDoc"</span></span>,</span><br><span class="line">    "<span class="attribute">description</span>": <span class="value"><span class="string">"A tutorial about YUIDoc, for Nettuts+"</span></span>,</span><br><span class="line">    "<span class="attribute">version</span>": <span class="value"><span class="string">"1.0.0"</span></span>,</span><br><span class="line">    "<span class="attribute">url</span>": <span class="value"><span class="string">"http://net.tutsplus.com"</span></span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
+<p>然后，有些有意义的选项你可以设置，以下是对照表：</p>
+<ol>
+<li>linkNatives: 设置为 “true” 则类似String 或者 Number 类型的将连接到<a href="https://developer.mozilla.org/En" target="_blank" rel="external">MDN docs</a>.</li>
+<li>outdir: 输出的路径</li>
+<li>paths: YUIDoc 将扫描的JS路径</li>
+<li>exclude: YUIDoc会忽略生成的路径</li>
+</ol>
+<p>设置了 paths选项，运行 yuidoc -c yuidoc.json 即可，就算没有设置paths 只运行 yuidoc .，YUIDoc会自动找到配置文件并运用的。<br>以下是我这个项目的配置文件：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "<span class="attribute">name</span>": <span class="value"><span class="string">"Documenting JavaScript with YUIDoc"</span></span>,</span><br><span class="line">    "<span class="attribute">description</span>": <span class="value"><span class="string">"A tutorial about YUIDoc, for Nettuts+"</span></span>,</span><br><span class="line">    "<span class="attribute">version</span>": <span class="value"><span class="string">"1.0.0"</span></span>,</span><br><span class="line">    "<span class="attribute">url</span>": <span class="value"><span class="string">"http://net.tutsplus.com"</span></span>,</span><br><span class="line">    "<span class="attribute">options</span>": <span class="value">&#123;</span><br><span class="line">        "<span class="attribute">linkNatives</span>": <span class="value"><span class="string">"true"</span></span>,</span><br><span class="line">        "<span class="attribute">outdir</span>": <span class="value"><span class="string">"./docs"</span></span>,</span><br><span class="line">        "<span class="attribute">paths</span>": <span class="value"><span class="string">"."</span></span><br><span class="line">    </span>&#125;</span><br><span class="line"></span>&#125;</span><br></pre></td></tr></table></figure>
+<p>###总评<br>基于YUIDoc 提供的标签，不难看到是为传统OOP风格的JS设计的，特别是YUI的widget等（事实上我已经讲过几个YUI专用的标签了），正是由于这点，你会发现有些标签真的对你很不实用。这时你最好考虑清楚是否要改变你的代码风格来迎合YUIDoc了，就算你不去改变，我想有很多标签使用起来也是没有问题的。</p>
+<blockquote>
+<p>对我来说更大的问题是，你是否喜欢你的代码里夹着文档。</p>
+</blockquote>
+<p>上例中代码包括注释有120行，仅有40不是注释。显然这些代码非常的简单 ，平常代码也是比较合理不会这么分散以致不好阅读。在我看来，我应该给YUIDoc一个公平的评价：我将会文档化我的JS代码来个几周时间，看YUIDoc是否会影响和如何影响我的编码风格和工作流程的。<br>如果你知道那滋味：喜欢或者厌恶，在回复里告诉我吧。</p>
+<p>###更多</p>
+<ul>
+<li><a href="http://www.yuiblog.com/blog/2012/05/09/yuidoc-0-3-0-is-official/" target="_blank" rel="external">YUIDoc 0.3.0 Release Blog Post</a></li>
+<li><a href="http://yui.github.com/yuidoc/" target="_blank" rel="external">YUIDoc Home Page</a></li>
+<li><a href="http://yui.github.com/yuidoc/args/index.html" target="_blank" rel="external">Using YUIDoc</a></li>
+<li><a href="http://yui.github.com/yuidoc/syntax/index.html" target="_blank" rel="external">YUIDoc Syntax Reference</a></li>
+<li><a href="http://yui.github.com/yuidoc/themes/index.html" target="_blank" rel="external">YUIDoc Themes</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.marcopai.com/blog/YUIDoc-to-JavaScript.html" data-id="cif3xzzn600041kmvp7nzii9z" class="article-share-link">分享到</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/Easy-to-make-the-mistake-of-thinking.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          [转]90%的人在做艰难的抉择时易犯的思维错误
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/NodeJS-Socket-Chat.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">Nodejs 制作聊天室</div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+</section>
+      
+        <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/blog/hello-world.html" class="title">Hello World</a></p>
+              <p class="item-date"><time datetime="2015-09-28T12:56:53.080Z" itemprop="datePublished">2015-09-28</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/tools/">tools</a></p>
+              <p class="item-title"><a href="/blog/JSDoc3.html" class="title">JSDoc3</a></p>
+              <p class="item-date"><time datetime="2014-07-17T09:38:35.000Z" itemprop="datePublished">2014-07-17</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/note/">note</a></p>
+              <p class="item-title"><a href="/blog/Easy-to-make-the-mistake-of-thinking.html" class="title">[转]90%的人在做艰难的抉择时易犯的思维错误</a></p>
+              <p class="item-date"><time datetime="2014-07-16T11:41:17.000Z" itemprop="datePublished">2014-07-16</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/note/">note</a></p>
+              <p class="item-title"><a href="/blog/YUIDoc-to-JavaScript.html" class="title">[搬砖]用YUIDoc制作JavaScript文档手册</a></p>
+              <p class="item-date"><time datetime="2014-07-15T03:36:55.000Z" itemprop="datePublished">2014-07-15</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/note/">note</a></p>
+              <p class="item-title"><a href="/blog/NodeJS-Socket-Chat.html" class="title">Nodejs 制作聊天室</a></p>
+              <p class="item-date"><time datetime="2014-07-10T09:33:56.000Z" itemprop="datePublished">2014-07-10</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/note/">note</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a><span class="category-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MacOS/">MacOS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Macbook-Air/">Macbook Air</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cdn/">cdn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsdoc/">jsdoc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/">life</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/MacOS/" style="font-size: 10px;">MacOS</a> <a href="/tags/Macbook-Air/" style="font-size: 10px;">Macbook Air</a> <a href="/tags/cdn/" style="font-size: 10px;">cdn</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jsdoc/" style="font-size: 10px;">jsdoc</a> <a href="/tags/life/" style="font-size: 15px;">life</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">七月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">六月 2014</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+  <div id="toTop" class="fa fa-chevron-up"></div>
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 Marco Pai<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+
+
+
+ <script src="//ajax.useso.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>

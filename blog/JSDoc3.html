@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JSDoc3 | I&#39;m Marco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="相关站点：官方网站：https://github.com/jsdoc3/jsdoc/书写规范：http://usejsdoc.org/相关介绍：http://blog.csdn.net/wts/article/category/1226952
+中文说明：http://clientlab.github.io/lessons/2013/10/24/build-api-document-by-jsdoc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JSDoc3">
+<meta property="og:url" content="http://www.marcopai.com/blog/JSDoc3.html">
+<meta property="og:site_name" content="I'm Marco">
+<meta property="og:description" content="相关站点：官方网站：https://github.com/jsdoc3/jsdoc/书写规范：http://usejsdoc.org/相关介绍：http://blog.csdn.net/wts/article/category/1226952
+中文说明：http://clientlab.github.io/lessons/2013/10/24/build-api-document-by-jsdoc">
+<meta property="og:updated_time" content="2014-07-17T09:38:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JSDoc3">
+<meta name="twitter:description" content="相关站点：官方网站：https://github.com/jsdoc3/jsdoc/书写规范：http://usejsdoc.org/相关介绍：http://blog.csdn.net/wts/article/category/1226952
+中文说明：http://clientlab.github.io/lessons/2013/10/24/build-api-document-by-jsdoc">
+  
+  
+  
+ <link href='//fonts.useso.com/css?family=Open+Sans:400italic,400,600' rel='stylesheet' type='text/css'>
+ <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+
+
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+  
+
+  
+
+  
+</head>
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-main" class="header-inner">
+    <div class="outer">
+      <a href="/" id="logo"><i class="logo" style="background-image: url(/css/images/logo.png)"></i><span class="site-title">I&#39;m Marco</span></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">home</a>
+        
+          <a class="main-nav-link" href="/categories/javascript">javascript</a>
+        
+          <a class="main-nav-link" href="/categories/css3">css3</a>
+        
+          <a class="main-nav-link" href="/categories/project">project</a>
+        
+          <a class="main-nav-link" href="/categories/nodejs">nodejs</a>
+        
+          <a class="main-nav-link" href="/categories/tools">tools</a>
+        
+          <a class="main-nav-link" href="/categories/photo">photo</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+          <a class="main-nav-link" href="/about">About</a>
+        
+          <a class="main-nav-link" href="/site">Sites</a>
+        
+      </nav>
+      
+        <nav id="sub-nav">
+          <div class="profile" id="profile-nav">
+            <a id="profile-anchor" href="javascript:;"><img class="avatar" src="http://www.gravatar.com/avatar/f0903fd6a890dad6ae1cd44d577adcfd"><i class="fa fa-caret-down"></i></a>
+          </div>
+        </nav>
+      
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"> </button><input type="hidden" name="sitesearch" value="http://www.marcopai.com"></form>
+      </div>
+    </div>
+  </div>
+  <div id="main-nav-mobile" class="header-sub header-inner">
+    <table class="menu outer">
+      <tr>
+        
+          <td><a class="main-nav-link" href="/">home</a></td>
+        
+          <td><a class="main-nav-link" href="/categories/javascript">javascript</a></td>
+        
+          <td><a class="main-nav-link" href="/categories/css3">css3</a></td>
+        
+          <td><a class="main-nav-link" href="/categories/project">project</a></td>
+        
+          <td><a class="main-nav-link" href="/categories/nodejs">nodejs</a></td>
+        
+          <td><a class="main-nav-link" href="/categories/tools">tools</a></td>
+        
+          <td><a class="main-nav-link" href="/categories/photo">photo</a></td>
+        
+          <td><a class="main-nav-link" href="/archives">Archives</a></td>
+        
+          <td><a class="main-nav-link" href="/categories">Categories</a></td>
+        
+          <td><a class="main-nav-link" href="/tags">Tags</a></td>
+        
+          <td><a class="main-nav-link" href="/about">About</a></td>
+        
+          <td><a class="main-nav-link" href="/site">Sites</a></td>
+        
+        <td>
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><input type="hidden" name="sitesearch" value="http://www.marcopai.com"></form>
+        </td>
+      </tr>
+    </table>
+  </div>
+</header>
+
+    <div class="outer">
+      
+        <aside id="profile">
+  <div class="inner profile-inner">
+    <div class="base-info profile-block">
+      <img id="avatar" src="http://www.gravatar.com/avatar/f0903fd6a890dad6ae1cd44d577adcfd">
+      <h2 id="name">Marco Pai</h2>
+      <h3 id="title">Web Developer &amp; Designer</h3>
+      <span id="location"><i class="fa fa-map-marker"></i>Beijing, China</span>
+      <a id="follow" target="_blank" href="http://weibo.com/wjay">关注我</a>
+    </div>
+    <div class="article-info profile-block">
+      <div class="article-info-block">
+        10
+        <span>文章</span>
+      </div>
+      <div class="article-info-block">
+        10
+        <span>标签</span>
+      </div>
+    </div>
+    
+    <div class="contact-info profile-block">
+      <table class="contact-list">
+        <tr>
+          
+          <td><a href="http://github.com/MarcoPai" target="_blank" title="github"><i class="fa fa-github"></i></a></td>
+          
+          <td><a href="http://weibo.com/wjay" target="_blank" title="weibo"><i class="fa fa-weibo"></i></a></td>
+          
+          <td><a href="http://jsfiddle.net/MarcoPai/qLev3oen/" target="_blank" title="jsfiddle"><i class="fa fa-jsfiddle"></i></a></td>
+          
+        </tr>
+      </table>
+    </div>
+    
+    
+  </div>
+</aside>
+
+      
+      <section id="main"><article id="post-JSDoc3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JSDoc3
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/blog/JSDoc3.html">
+      <time datetime="2014-07-17T09:38:35.000Z" itemprop="datePublished">2014-07-17</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/tools/">tools</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <h3 id="相关站点：">相关站点：</h3><p>官方网站：<a href="https://github.com/jsdoc3/jsdoc/" target="_blank" rel="external">https://github.com/jsdoc3/jsdoc/</a><br>书写规范：<a href="http://usejsdoc.org/" target="_blank" rel="external">http://usejsdoc.org/</a><br>相关介绍：<a href="http://blog.csdn.net/wts/article/category/1226952" target="_blank" rel="external">http://blog.csdn.net/wts/article/category/1226952</a></p>
+<p>中文说明：<a href="http://clientlab.github.io/lessons/2013/10/24/build-api-document-by-jsdoc3/" target="_blank" rel="external">http://clientlab.github.io/lessons/2013/10/24/build-api-document-by-jsdoc3/</a><br>实战说明：<a href="http://www.36ria.com/5101" target="_blank" rel="external">使用jsdoc生成组件API文档—jsdoc实战</a></p>
+<h3 id="JSDoc支持的命令属性：">JSDoc支持的命令属性：</h3><table>
+<thead>
+<tr>
+<th>命令名</th>
+<th>描述 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@param</td>
+<td></td>
+</tr>
+<tr>
+<td>@argument</td>
+<td>指定参数名和说明来描述一个函数参数。 </td>
+</tr>
+<tr>
+<td>@return</td>
+<td></td>
+</tr>
+<tr>
+<td>@returns</td>
+<td>描述函数的返回值。 </td>
+</tr>
+<tr>
+<td>@author</td>
+<td>指示代码的作者。 </td>
+</tr>
+<tr>
+<td>@deprecated</td>
+<td>指示一个函数已经废弃，不建议使用，而且在将来版本的代码中可能会彻底删除。要避免使用这段代码。 </td>
+</tr>
+<tr>
+<td>@see</td>
+<td>创建一个HTML链接指向指定类的描述。 </td>
+</tr>
+<tr>
+<td>@version</td>
+<td>指定发布版本。 </td>
+</tr>
+<tr>
+<td>@requires</td>
+<td>创建一个HTML链接，指向这个类所需的指定类。 </td>
+</tr>
+<tr>
+<td>@throws</td>
+<td></td>
+</tr>
+<tr>
+<td>@exception</td>
+<td>描述函数可能抛出的异常的类型。 </td>
+</tr>
+<tr>
+<td>{@link}</td>
+<td>创建一个HTML链接，指向指定的类。这与@see很类似，但{@link}能嵌在注释文本中。 </td>
+</tr>
+<tr>
+<td>@author</td>
+<td>指示代码的作者。（译者注：这个标记前面已经出现过，建议去掉） </td>
+</tr>
+<tr>
+<td>@fileoverview</td>
+<td>这是一个特殊的标记，如果在文件的第一个文档块中使用这个标记，则指定该文档块的余下部分将用来提供文件的一个概述。 </td>
+</tr>
+<tr>
+<td>@class</td>
+<td>提供类的有关信息，用在构造函数的文档中。 </td>
+</tr>
+<tr>
+<td>@constructor</td>
+<td>明确一个函数是某个类的构造函数。 </td>
+</tr>
+<tr>
+<td>@type</td>
+<td>指定函数的返回类型。 </td>
+</tr>
+<tr>
+<td>@extends</td>
+<td>指示一个类派生了另一个类。通常JSDoc自己就可以检测出这种信息，不过，在某些情况下则必须使用这个标记。 </td>
+</tr>
+<tr>
+<td>@private</td>
+<td>指示一个类或函数是私有的。私有类和函数不会出现在HTML文档中，除非运行JSDoc时提供了—private命令行选项。</td>
+</tr>
+<tr>
+<td>@final</td>
+<td>指示一个值是常量值。要记住JavaScript无法真正保证一个值是常量。 </td>
+</tr>
+<tr>
+<td>@ignore</td>
+<td>JSDoc会忽略有这个标记的函数。</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<h3 id="Tag_Dictionary">Tag Dictionary</h3><table>
+<thead>
+<tr>
+<th>name</th>
+<th>describe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@abstract (synonyms: @virtual)</td>
+<td>This member must be implemented (or overridden) by the inheritor.</td>
+</tr>
+<tr>
+<td>@access</td>
+<td>Specify the access level of this member (private, public, or protected).</td>
+</tr>
+<tr>
+<td>@alias</td>
+<td>Treat a member as if it had a different name.</td>
+</tr>
+<tr>
+<td>@augments (synonyms: @extends)</td>
+<td>This object adds onto a parent object.</td>
+</tr>
+<tr>
+<td>@author</td>
+<td>Identify the author of an item.</td>
+</tr>
+<tr>
+<td>@borrows</td>
+<td>This object uses something from another object.</td>
+</tr>
+<tr>
+<td>@callback</td>
+<td>Document a callback function.</td>
+</tr>
+<tr>
+<td>@class (synonyms: @constructor)</td>
+<td>This function is intended to be called with the “new” keyword.</td>
+</tr>
+<tr>
+<td>@classdesc</td>
+<td>Use the following text to describe the entire class.</td>
+</tr>
+<tr>
+<td>@constant (synonyms: @const)</td>
+<td>Document an object as a constant.</td>
+</tr>
+<tr>
+<td>@constructs</td>
+<td>This function member will be the constructor for the previous class.</td>
+</tr>
+<tr>
+<td>@copyright</td>
+<td>Document some copyright information.</td>
+</tr>
+<tr>
+<td>@default (synonyms: @defaultvalue)</td>
+<td>Document the default value.</td>
+</tr>
+<tr>
+<td>@deprecated</td>
+<td>Document that this is no longer the preferred way.</td>
+</tr>
+<tr>
+<td>@description (synonyms: @desc)</td>
+<td>Describe a symbol.</td>
+</tr>
+<tr>
+<td>@enum</td>
+<td>Document a collection of related properties.</td>
+</tr>
+<tr>
+<td>@event</td>
+<td>Document an event.</td>
+</tr>
+<tr>
+<td>@example</td>
+<td>Provide an example of how to use a documented item.</td>
+</tr>
+<tr>
+<td>@exports</td>
+<td>Identify the member that is exported by a JavaScript module.</td>
+</tr>
+<tr>
+<td>@external (synonyms: @host)</td>
+<td>Document an external class/namespace/module.</td>
+</tr>
+<tr>
+<td>@file (synonyms: @fileoverview, @overview)</td>
+<td>Describe a file.</td>
+</tr>
+<tr>
+<td>@fires (synonyms: @emits)</td>
+<td>Describe the events this method may fire.</td>
+</tr>
+<tr>
+<td>@function (synonyms: @func, @method)</td>
+<td>Describe a function or method.</td>
+</tr>
+<tr>
+<td>@global</td>
+<td>Document a global object.</td>
+</tr>
+<tr>
+<td>@ignore</td>
+<td>[todo] Remove this from the final output.</td>
+</tr>
+<tr>
+<td>@inner</td>
+<td>Document an inner object.</td>
+</tr>
+<tr>
+<td>@instance</td>
+<td>Document an instance member.</td>
+</tr>
+<tr>
+<td>@kind</td>
+<td>What kind of symbol is this?</td>
+</tr>
+<tr>
+<td>@lends</td>
+<td>Document properties on an object literal as if they belonged to a symbol with a given name.</td>
+</tr>
+<tr>
+<td>@license</td>
+<td>[todo] Document the software license that applies to this code.</td>
+</tr>
+<tr>
+<td>@link</td>
+<td>Inline tag - create a link.</td>
+</tr>
+<tr>
+<td>@member (synonyms: @var)</td>
+<td>Document a member.</td>
+</tr>
+<tr>
+<td>@memberof</td>
+<td>This symbol belongs to a parent symbol.</td>
+</tr>
+<tr>
+<td>@mixes</td>
+<td>This object mixes in all the members from another object.</td>
+</tr>
+<tr>
+<td>@mixin</td>
+<td>Document a mixin object.</td>
+</tr>
+<tr>
+<td>@module</td>
+<td>Document a JavaScript module.</td>
+</tr>
+<tr>
+<td>@name</td>
+<td>Document the name of an object.</td>
+</tr>
+<tr>
+<td>@namespace</td>
+<td>Document a namespace object.</td>
+</tr>
+<tr>
+<td>@param (synonyms: @arg, @argument)</td>
+<td>Document the parameter to a function.</td>
+</tr>
+<tr>
+<td>@private</td>
+<td>This symbol is meant to be private.</td>
+</tr>
+<tr>
+<td>@property (synonyms: @prop)</td>
+<td>Document a property of an object.</td>
+</tr>
+<tr>
+<td>@protected</td>
+<td>This member is meant to be protected.</td>
+</tr>
+<tr>
+<td>@public</td>
+<td>This symbol is meant to be public.</td>
+</tr>
+<tr>
+<td>@readonly</td>
+<td>This symbol is meant to be read-only.</td>
+</tr>
+<tr>
+<td>@requires</td>
+<td>This file requires a JavaScript module.</td>
+</tr>
+<tr>
+<td>@returns (synonyms: @return)</td>
+<td>Document the return value of a function.</td>
+</tr>
+<tr>
+<td>@see</td>
+<td>Refer to some other documentation for more information.</td>
+</tr>
+<tr>
+<td>@since</td>
+<td>When was this feature added?</td>
+</tr>
+<tr>
+<td>@static</td>
+<td>Document a static member.</td>
+</tr>
+<tr>
+<td>@summary</td>
+<td>A shorter version of the full description.</td>
+</tr>
+<tr>
+<td>@this</td>
+<td>What does the ‘this’ keyword refer to here?</td>
+</tr>
+<tr>
+<td>@throws (synonyms: @exception)</td>
+<td>Describe what errors could be thrown.</td>
+</tr>
+<tr>
+<td>@todo</td>
+<td>Document tasks to be completed.</td>
+</tr>
+<tr>
+<td>@tutorial</td>
+<td>Insert a link to an included tutorial file.</td>
+</tr>
+<tr>
+<td>@type</td>
+<td>Document the type of an object.</td>
+</tr>
+<tr>
+<td>@typedef</td>
+<td>Document a custom type.</td>
+</tr>
+<tr>
+<td>@variation</td>
+<td>Distinguish different objects with the same name.</td>
+</tr>
+<tr>
+<td>@version</td>
+<td>Documents the version number of an item.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Example">Example</h3><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@author:</td>
+<td>作者</td>
+</tr>
+<tr>
+<td>@argument:</td>
+<td>参数</td>
+</tr>
+<tr>
+<td>@augments:</td>
+<td>参数</td>
+</tr>
+<tr>
+<td>@class</td>
+<td>类</td>
+</tr>
+<tr>
+<td>@constant</td>
+<td>常数</td>
+</tr>
+<tr>
+<td>@constructor</td>
+<td>构造</td>
+</tr>
+<tr>
+<td>@constructs</td>
+<td>构造</td>
+</tr>
+<tr>
+<td>@default</td>
+<td>默认值</td>
+</tr>
+<tr>
+<td>@deprecated</td>
+<td>推荐，说明使用一个变量已不再支持</td>
+</tr>
+<tr>
+<td>@description</td>
+<td>说明</td>
+</tr>
+<tr>
+<td>@example</td>
+<td>范例</td>
+</tr>
+<tr>
+<td>@extends</td>
+<td>扩展 ，继承</td>
+</tr>
+<tr>
+<td>@field</td>
+<td>变量（非功能）</td>
+</tr>
+<tr>
+<td>@fileOverview</td>
+<td>整个文件信息</td>
+</tr>
+<tr>
+<td>@function</td>
+<td>功能 (表示该变量指向一个功能)</td>
+</tr>
+<tr>
+<td>@inner</td>
+<td>内部</td>
+</tr>
+<tr>
+<td>@private</td>
+<td>私有</td>
+</tr>
+<tr>
+<td>@ignore</td>
+<td>忽视 （文档生成的式后也将忽视这个变量）</td>
+</tr>
+<tr>
+<td>@event</td>
+<td>事件</td>
+</tr>
+<tr>
+<td>@version</td>
+<td>版本</td>
+</tr>
+<tr>
+<td>@type</td>
+<td>类型 描述预期的类型变量的值或返回值的函数</td>
+</tr>
+<tr>
+<td>@throws</td>
+<td>可能抛出的异常</td>
+</tr>
+<tr>
+<td>@static</td>
+<td>静态，访问该变量不需要实例</td>
+</tr>
+<tr>
+<td>@since</td>
+<td>自 （表明某属性特征，是在什么版本之后才有的）</td>
+</tr>
+<tr>
+<td>@see</td>
+<td>描述相关的资源</td>
+</tr>
+<tr>
+<td>@scope</td>
+<td>作用域</td>
+</tr>
+<tr>
+<td>@lends</td>
+<td>作用域</td>
+</tr>
+<tr>
+<td>@return</td>
+<td>返回值</td>
+</tr>
+<tr>
+<td>@returns</td>
+<td>返回值</td>
+</tr>
+<tr>
+<td>@requires</td>
+<td>描述必须需要的资源</td>
+</tr>
+<tr>
+<td>@public</td>
+<td>说明内在变量是公开的</td>
+</tr>
+<tr>
+<td>@property</td>
+<td>属性</td>
+</tr>
+<tr>
+<td>@param</td>
+<td>参数</td>
+</tr>
+<tr>
+<td>@namespace</td>
+<td>命名空间</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://www.marcopai.com/blog/JSDoc3.html" data-id="cif3xzzo2000n1kmv388aw8lv" class="article-share-link">分享到</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jsdoc/">jsdoc</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/hello-world.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/Easy-to-make-the-mistake-of-thinking.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">[转]90%的人在做艰难的抉择时易犯的思维错误</div>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+
+</section>
+      
+        <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul id="recent-post" class="no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/blog/hello-world.html" class="title">Hello World</a></p>
+              <p class="item-date"><time datetime="2015-09-28T12:56:53.080Z" itemprop="datePublished">2015-09-28</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/tools/">tools</a></p>
+              <p class="item-title"><a href="/blog/JSDoc3.html" class="title">JSDoc3</a></p>
+              <p class="item-date"><time datetime="2014-07-17T09:38:35.000Z" itemprop="datePublished">2014-07-17</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/note/">note</a></p>
+              <p class="item-title"><a href="/blog/Easy-to-make-the-mistake-of-thinking.html" class="title">[转]90%的人在做艰难的抉择时易犯的思维错误</a></p>
+              <p class="item-date"><time datetime="2014-07-16T11:41:17.000Z" itemprop="datePublished">2014-07-16</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/note/">note</a></p>
+              <p class="item-title"><a href="/blog/YUIDoc-to-JavaScript.html" class="title">[搬砖]用YUIDoc制作JavaScript文档手册</a></p>
+              <p class="item-date"><time datetime="2014-07-15T03:36:55.000Z" itemprop="datePublished">2014-07-15</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/note/">note</a></p>
+              <p class="item-title"><a href="/blog/NodeJS-Socket-Chat.html" class="title">Nodejs 制作聊天室</a></p>
+              <p class="item-date"><time datetime="2014-07-10T09:33:56.000Z" itemprop="datePublished">2014-07-10</time></p>
+            </div>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/note/">note</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a><span class="category-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MacOS/">MacOS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Macbook-Air/">Macbook Air</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cdn/">cdn</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsdoc/">jsdoc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/">life</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/MacOS/" style="font-size: 10px;">MacOS</a> <a href="/tags/Macbook-Air/" style="font-size: 10px;">Macbook Air</a> <a href="/tags/cdn/" style="font-size: 10px;">cdn</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/tags/jsdoc/" style="font-size: 10px;">jsdoc</a> <a href="/tags/life/" style="font-size: 15px;">life</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">七月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">六月 2014</a><span class="archive-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+  <div id="toTop" class="fa fa-chevron-up"></div>
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 Marco Pai<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+
+
+
+ <script src="//ajax.useso.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
